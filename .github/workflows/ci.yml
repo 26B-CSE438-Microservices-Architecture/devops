@@ -1,0 +1,22 @@
+name: DevOps CI Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted # Kurduğun runner
+
+    steps:
+    - name: Kodu Çek
+      uses: actions/checkout@v4
+
+    - name: Docker Compose ile Sistemi Ayağa Kaldır ve Test Et
+      run: |
+        docker-compose up --build -d
+        
+    - name: Uygulama Çıktısını Kontrol Et
+      run: |
+        # Konteynerin loglarını ekrana basarak "Forrest Gump is running" yazısını görelim
+        docker logs forrest-gump-app
