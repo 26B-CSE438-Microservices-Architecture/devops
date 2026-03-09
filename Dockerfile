@@ -22,3 +22,4 @@ COPY --from=build /app/publish .
 
 # Konteyner ayağa kalktığında çalıştırılacak nihai komut
 ENTRYPOINT ["dotnet", "RunForrestRun.dll"]
+#deneme
