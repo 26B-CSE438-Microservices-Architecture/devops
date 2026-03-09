@@ -10,13 +10,20 @@ jobs:
 
     steps:
     - name: Kodu Çek
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
+      with:
+        persist-credentials: false
 
     - name: Docker Compose ile Sistemi Ayağa Kaldır ve Test Et
       run: |
-        docker-compose up --build -d
+        docker compose up --build -d
         
     - name: Uygulama Çıktısını Kontrol Et
       run: |
         # Konteynerin loglarını ekrana basarak "Forrest Gump is running" yazısını görelim
         docker logs forrest-gump-app
+
+    - name: Temizlik
+      if: always()
+      run: |
+        docker compose down --remove-orphans
