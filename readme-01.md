@@ -4,7 +4,7 @@
 Bu proje, GitHub self-hosted runner entegrasyonunu test etmek ve temel bir RabbitMQ mesajlaşma altyapısını ayağa kaldırmak için oluşturulmuştur.
 
 ## İçerik
-1. **.NET 8 Docker İmaj Testi:** Eklenen basit bir konsol uygulaması (`Forrest Gump is running` çıktısı verir) runner (forrest gump) üzerinden derlenir.
+1. **.NET 10 Docker İmaj Testi:** Eklenen basit bir konsol uygulaması (`Forrest Gump is running` çıktısı verir) runner (forrest gump) üzerinden derlenir.
 2. **RabbitMQ Altyapısı:** Diğer servislerin haberleşebilmesi için mesaj kuyruğu yapılandırılmıştır.
 
 ## Kullanılan Portlar (RabbitMQ)
