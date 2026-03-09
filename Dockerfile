@@ -1,6 +1,6 @@
 # 1. AŞAMA: Derleme (Build) Ortamı
-# Uygulamayı derlemek için içinde .NET 8 SDK (yazılım geliştirme kiti) olan ağır imajı kullanıyoruz.
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# Uygulamayı derlemek için içinde .NET 10 SDK (yazılım geliştirme kiti) olan ağır imajı kullanıyoruz.
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
 # Önce sadece proje dosyasını kopyalayıp bağımlılıkları indiriyoruz (Docker önbelleğini verimli kullanmak için)
@@ -14,7 +14,7 @@ RUN dotnet publish "BasicApp.csproj" -c Release -o /app/publish /p:UseAppHost=fa
 
 # 2. AŞAMA: Çalıştırma (Runtime) Ortamı
 # Uygulamayı çalıştırmak için sadece .NET 8 Runtime (çalışma zamanı) olan çok daha hafif bir imaj kullanıyoruz.
-FROM mcr.microsoft.com/dotnet/runtime:8.0 AS final
+FROM mcr.microsoft.com/dotnet/runtime:10.0 AS final
 WORKDIR /app
 
 # İlk aşamada derlenen hazır dosyaları, bu hafif imajın içine kopyalıyoruz
