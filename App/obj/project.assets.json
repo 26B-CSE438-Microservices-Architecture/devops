@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Melih\\Desktop\\github\\MicroService\\devops\\App\\App\\RunForrestRun.csproj",
+      "projectUniqueName": "C:\\Users\\Melih\\Desktop\\github\\MicroService\\devops\\App\\RunForrestRun.csproj",
       "projectName": "RunForrestRun",
-      "projectPath": "C:\\Users\\Melih\\Desktop\\github\\MicroService\\devops\\App\\App\\RunForrestRun.csproj",
+      "projectPath": "C:\\Users\\Melih\\Desktop\\github\\MicroService\\devops\\App\\RunForrestRun.csproj",
       "packagesPath": "C:\\Users\\Melih\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Melih\\Desktop\\github\\MicroService\\devops\\App\\App\\obj\\",
+      "outputPath": "C:\\Users\\Melih\\Desktop\\github\\MicroService\\devops\\App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
