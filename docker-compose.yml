@@ -244,7 +244,7 @@ services:
     restart: unless-stopped
     environment:
       ASPNETCORE_ENVIRONMENT: Docker
-      ConnectionStrings__DefaultConnection: Host=postgres-restaurant;Port=5432;Database=restaurantdb;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      ConnectionStrings__DefaultConnection: Host=postgres-restaurant;Port=5432;Database=restaurantdb;Username=postgres;Password=cse438secure
     ports:
       - "5001:5000"
     depends_on:
@@ -257,6 +257,7 @@ services:
     image: ghcr.io/${GITHUB_ORG}/payment-service:latest
     container_name: payment-service
     restart: unless-stopped
+    command: sh -c "npx prisma migrate deploy && node src/index.js"
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-payment:5432/paymentdb
       RABBITMQ_URL: amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@rabbitmq:5672
@@ -276,7 +277,7 @@ services:
     image: ghcr.io/${GITHUB_ORG}/payment-service:latest
     container_name: payment-worker
     restart: unless-stopped
-    command: node src/worker/index.js
+    command: node src/index.js
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-payment:5432/paymentdb
       RABBITMQ_URL: amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@rabbitmq:5672
