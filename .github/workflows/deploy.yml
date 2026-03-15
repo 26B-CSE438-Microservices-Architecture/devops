@@ -1,0 +1,22 @@
+name: Deploy to Server
+
+on:
+  repository_dispatch:
+    types: [deploy]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux, okul]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy
+        run: |
+          cd $HOME/CSE438/devops
+          docker compose pull
+          docker compose up -d --remove-orphans
+          docker image prune -f
+          echo "✅ Deploy tamamlandı!"
+          docker compose ps
